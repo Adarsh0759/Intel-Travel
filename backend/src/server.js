@@ -3,10 +3,13 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const authRoutes = require("./routes/authRoutes");
 const connectDB = require("./config/db");
+
+const authRoutes = require("./routes/authRoutes");
 const hotelRoutes = require("./routes/hotelRoutes");
 const destinationRoutes = require("./routes/destinationRoutes");
+const wishlistRoutes = require("./routes/wishlistRoutes");
+
 const protect = require("./middleware/authMiddleware");
 
 const app = express();
@@ -34,6 +37,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/destinations", destinationRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/wishlist",wishlistRoutes);
 
 const PORT = process.env.PORT || 5000;
 
