@@ -9,6 +9,9 @@ const authRoutes = require("./routes/authRoutes");
 const hotelRoutes = require("./routes/hotelRoutes");
 const destinationRoutes = require("./routes/destinationRoutes");
 const wishlistRoutes = require("./routes/wishlistRoutes");
+const bookingRoutes=require("./routes/bookingRoutes");
+
+
 
 const protect = require("./middleware/authMiddleware");
 
@@ -38,6 +41,7 @@ app.use("/api/hotels", hotelRoutes);
 app.use("/api/destinations", destinationRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/wishlist",wishlistRoutes);
+app.use("/api/bookings",bookingRoutes);
 
 const PORT = process.env.PORT || 5000;
 
